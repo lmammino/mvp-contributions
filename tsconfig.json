@@ -1,0 +1,21 @@
+{
+  "extends": "@tsconfig/node18/tsconfig.json",
+  "compilerOptions": {
+    "preserveConstEnums": true,
+    "module": "nodenext",
+    "target": "ESNext",
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "moduleResolution": "nodenext",
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  },
+}

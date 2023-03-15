@@ -1,0 +1,13 @@
+# - Type: Article
+#   Props:
+#     primaryContributionArea: Cloud Security
+#     secondaryContributionArea:
+#       - "Javascript/Typescript"
+#       - "Node.js"
+#     date: 2023-01-16
+#     title: "The illustrated guide to S3 pre-signed URLs"
+#     url: "https://fourtheorem.com/the-illustrated-guide-to-s3-pre-signed-urls/"
+#     description: "Article about AWS S3 pre-signed urls published on the fourTheorem blog"
+#     numberOfArticles: 1
+#     numberOfViews: 10000
+
