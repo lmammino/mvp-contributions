@@ -2,7 +2,7 @@
 
 Automates contribution submissions to the Microsoft MVP (Most Valuable Professional) portal.
 
-Status: **Work in progress**
+Status: ⚠️ **Work in progress**
 
 ## Rationale
 
@@ -18,5 +18,14 @@ Go to your browser of choice and head to [mvp.microsoft.com](https://mvp.microso
 
 - Clone
 - run `npm i`
-- populate the sample `template.yml` with your content
-- run `npm start -- template.yml <your_session_cookie>` (replace `<your_session_cookie>` with your actual cookie)
+- populate the sample `content.yml` with your content
+- run `npm start -- content.yml <your_session_cookie>` (replace `<your_session_cookie>` with your actual cookie)
+
+
+## Schema
+
+TODO: describe schema for `content.yml`
+
+## LICENSE
+
+TODO:
