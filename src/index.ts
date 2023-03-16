@@ -59,7 +59,7 @@ for (const content of contents) {
   await page.click('#submitActivityButton')
   await page.waitForSelector('[role="dialog"]', { state: 'hidden' })
 
-  console.log(`✔️ (${++done}/${contents.length}) - ${(content.props as unknown as { TitleOfActivity: string }).TitleOfActivity}`)
+  console.log(`✔️ (${++done}/${contents.length}) - ${content.props.TitleOfActivity}`)
 }
 
 await context.close()

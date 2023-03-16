@@ -51,31 +51,37 @@ export const ContentSchema = z.discriminatedUnion('type', [
   z.object({ type: z.literal('WorkshopVolunteerProctor'), props: WorkshopVolunteerProctorSchema })
 ])
 
+interface WithTitle {
+  TitleOfActivity: string
+}
+
+type MappedProps<T> = WithTitle & Record<keyof T, string>
+
 export type MappedContentSchema =
-  { type: 'Article', props: Record<keyof typeof ArticleFieldMapping, string> } |
-  { type: 'BlogWebsitePost', props: Record<keyof typeof BlogWebsitePostSchema, string> } |
-  { type: 'BookAuthor', props: Record<keyof typeof BookAuthorSchema, string> } |
-  { type: 'BookCoauthor', props: Record<keyof typeof BookCoauthorSchema, string> } |
-  { type: 'ConferenceStaffing', props: Record<keyof typeof ConferenceStaffingSchema, string> } |
-  { type: 'DocsMicrosoftComContribution', props: Record<keyof typeof DocsMicrosoftComContributionSchema, string> } |
-  { type: 'ForumModerator', props: Record<keyof typeof ForumModeratorSchema, string> } |
-  { type: 'ForumParticipation', props: Record<keyof typeof ForumParticipationSchema, string> } |
-  { type: 'ForumParticipationMicrosoft', props: Record<keyof typeof ForumParticipationMicrosoftSchema, string> } |
-  { type: 'Mentorship', props: Record<keyof typeof MentorshipSchema, string> } |
-  { type: 'MicrosoftOpenSource', props: Record<keyof typeof MicrosoftOpenSourceSchema, string> } |
-  { type: 'NonMicrosoftOpenSource', props: Record<keyof typeof NonMicrosoftOpenSourceSchema, string> } |
-  { type: 'OrganizerConference', props: Record<keyof typeof OrganizerConferenceSchema, string> } |
-  { type: 'OrganizerUserGroup', props: Record<keyof typeof OrganizerUserGroupSchema, string> } |
-  { type: 'Other', props: Record<keyof typeof OtherSchema, string> } |
-  { type: 'ProductGroupFeedback', props: Record<keyof typeof ProductGroupFeedbackSchema, string> } |
-  { type: 'SampleCode', props: Record<keyof typeof SampleCodeSchema, string> } |
-  { type: 'SiteOwner', props: Record<keyof typeof SiteOwnerSchema, string> } |
-  { type: 'SpeakingConference', props: Record<keyof typeof SpeakingConferenceSchema, string> } |
-  { type: 'SpeakingUserGroup', props: Record<keyof typeof SpeakingUserGroupSchema, string> } |
-  { type: 'TechnicalSocialMedia', props: Record<keyof typeof TechnicalSocialMediaSchema, string> } |
-  { type: 'TranslationReview', props: Record<keyof typeof TranslationReviewSchema, string> } |
-  { type: 'VideoWebcastPodcast', props: Record<keyof typeof VideoWebcastPodcastSchema, string> } |
-  { type: 'WorkshopVolunteerProctor', props: Record<keyof typeof WorkshopVolunteerProctorSchema, string> }
+  { type: 'Article', props: MappedProps<typeof ArticleFieldMapping> } |
+  { type: 'BlogWebsitePost', props: MappedProps<typeof BlogWebsitePostSchema> } |
+  { type: 'BookAuthor', props: MappedProps<typeof BookAuthorSchema> } |
+  { type: 'BookCoauthor', props: MappedProps<typeof BookCoauthorSchema> } |
+  { type: 'ConferenceStaffing', props: MappedProps<typeof ConferenceStaffingSchema> } |
+  { type: 'DocsMicrosoftComContribution', props: MappedProps<typeof DocsMicrosoftComContributionSchema> } |
+  { type: 'ForumModerator', props: MappedProps<typeof ForumModeratorSchema> } |
+  { type: 'ForumParticipation', props: MappedProps<typeof ForumParticipationSchema> } |
+  { type: 'ForumParticipationMicrosoft', props: MappedProps<typeof ForumParticipationMicrosoftSchema> } |
+  { type: 'Mentorship', props: MappedProps<typeof MentorshipSchema> } |
+  { type: 'MicrosoftOpenSource', props: MappedProps<typeof MicrosoftOpenSourceSchema> } |
+  { type: 'NonMicrosoftOpenSource', props: MappedProps<typeof NonMicrosoftOpenSourceSchema> } |
+  { type: 'OrganizerConference', props: MappedProps<typeof OrganizerConferenceSchema> } |
+  { type: 'OrganizerUserGroup', props: MappedProps<typeof OrganizerUserGroupSchema> } |
+  { type: 'Other', props: MappedProps<typeof OtherSchema> } |
+  { type: 'ProductGroupFeedback', props: MappedProps<typeof ProductGroupFeedbackSchema> } |
+  { type: 'SampleCode', props: MappedProps<typeof SampleCodeSchema> } |
+  { type: 'SiteOwner', props: MappedProps<typeof SiteOwnerSchema> } |
+  { type: 'SpeakingConference', props: MappedProps<typeof SpeakingConferenceSchema> } |
+  { type: 'SpeakingUserGroup', props: MappedProps<typeof SpeakingUserGroupSchema> } |
+  { type: 'TechnicalSocialMedia', props: MappedProps<typeof TechnicalSocialMediaSchema> } |
+  { type: 'TranslationReview', props: MappedProps<typeof TranslationReviewSchema> } |
+  { type: 'VideoWebcastPodcast', props: MappedProps<typeof VideoWebcastPodcastSchema> } |
+  { type: 'WorkshopVolunteerProctor', props: MappedProps<typeof WorkshopVolunteerProctorSchema> }
 
 export type Content = z.infer<typeof ContentSchema>
 
