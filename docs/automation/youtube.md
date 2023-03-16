@@ -30,26 +30,32 @@ const youtube = await Innertube.create()
 const content = await youtube.getChannel(youtubeChannelId)
 const videos = content.videos
 
+const seenVideos = new Set()
 const contents = []
+let i = 0
 for (const video of videos) {
-  const info = await youtube.getInfo(video.id)
-  const { primaryContributionArea, secondaryContributionArea } = categoryMapping(info)
-  const content = {
-    type: 'VideoWebcastPodcast',
-    props: {
+  if (!seenVideos.has(video.id)) {
+    console.error(`(${++i}/${videos.length}) ${video.id}`)
+    const info = await youtube.getInfo(video.id)
+    const { primaryContributionArea, secondaryContributionArea } = categoryMapping(info)
+    const content = {
+      type: 'VideoWebcastPodcast',
+      props: {
       // do your own category mapping
-      primaryContributionArea,
-      secondaryContributionArea,
-      title: emojiStrip(info.primary_info.title.text).trim(),
-      url: `https://www.youtube.com/watch?v=${video.id}`,
-      numberOfVideos: 1,
-      numberOfViews: info.basic_info.view_count,
-      date: (new Date(info.primary_info.published.text)).toISOString().substring(0, 10),
-      description: info.secondary_info.description.text.split('\n')[0].trim().substring(0, 256)
+        primaryContributionArea,
+        secondaryContributionArea,
+        title: emojiStrip(info.primary_info.title.text).trim(),
+        url: `https://www.youtube.com/watch?v=${video.id}`,
+        numberOfVideos: 1,
+        numberOfViews: info.basic_info.view_count,
+        date: (new Date(info.primary_info.published.text)).toISOString().substring(0, 10),
+        description: info.secondary_info.description.text.split('\n')[0].trim().substring(0, 256)
+      }
     }
-  }
-  if (content.props.date >= cutOffDate) {
-    contents.push(content)
+    if (content.props.date >= cutOffDate) {
+      contents.push(content)
+    }
+    seenVideos.add(video.id)
   }
 }
 
@@ -62,4 +68,4 @@ You could then run:
 node fromYoutube.js > content.yml
 ```
 
-To get your content.yml file
+To get your `content.yml` file including all the relevant videos

@@ -36,10 +36,49 @@ Feel free to submit your examples here.
 
 ## Schema
 
-TODO: describe schema for `content.yml`
+Your `content.yml` file needs to follow a very specific schema.
+
+The list of entries should be an array and every entry must have 2 fields: `type` (`string`) and `props` (`object`).
+
+The `props` object will have a different schema depending on the selected type.
+
+Here you can find the list of all the available types (pointing to their schema file in Zod):
+
+- [`Article`](/src/schemas/Article.ts)
+- [`BlogWebsitePost`](/src/schemas/BlogWebsitePost.ts)
+- [`BookAuthor`](/src/schemas/BookAuthor.ts)
+- [`BookCoauthor`](/src/schemas/BookCoauthor.ts)
+- [`ConferenceStaffing`](/src/schemas/ConferenceStaffing.ts)
+- [`DocsMicrosoftComContribution`](/src/schemas/DocsMicrosoftComContribution.ts)
+- [`ForumModerator`](/src/schemas/ForumModerator.ts)
+- [`ForumParticipation`](/src/schemas/ForumParticipation.ts)
+- [`ForumParticipationMicrosoft`](/src/schemas/ForumParticipationMicrosoft.ts)
+- [`Mentorship`](/src/schemas/Mentorship.ts)
+- [`MicrosoftOpenSource`](/src/schemas/MicrosoftOpenSource.ts)
+- [`NonMicrosoftOpenSource`](/src/schemas/NonMicrosoftOpenSource.ts)
+- [`OrganizerConference`](/src/schemas/OrganizerConference.ts)
+- [`OrganizerUserGroup`](/src/schemas/OrganizerUserGroup.ts)
+- [`Other`](/src/schemas/Other.ts)
+- [`ProductGroupFeedback`](/src/schemas/ProductGroupFeedback.ts)
+- [`SampleCode`](/src/schemas/SampleCode.ts)
+- [`SiteOwner`](/src/schemas/SiteOwner.ts)
+- [`SpeakingConference`](/src/schemas/SpeakingConference.ts)
+- [`SpeakingUserGroup`](/src/schemas/SpeakingUserGroup.ts)
+- [`TechnicalSocialMedia`](/src/schemas/TechnicalSocialMedia.ts)
+- [`TranslationReview`](/src/schemas/TranslationReview.ts)
+- [`VideoWebcastPodcast`](/src/schemas/VideoWebcastPodcast.ts)
+- [`WorkshopVolunteerProcotor`](/src/schemas/WorkshopVolunteerProcotor.ts)
 
 
+Note tha the [`content.yml`](/content.yml) committed in this repository contains some commented examples that you can use as a reference.
 
+
+## Future improvement ideas
+
+- Better testing
+- Support content files in JS/TS (to have a better authoring experience with autocompletion and type checking)
+- Detection of expired sessions (it generally lasts 1 hour)
+- Managed state files to be able to recover from failure
 
 
 ## Contributing

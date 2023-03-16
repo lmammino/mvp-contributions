@@ -60,7 +60,6 @@ for (const content of contents) {
   await page.waitForSelector('[role="dialog"]', { state: 'hidden' })
 
   console.log(`✔️ (${++done}/${contents.length}) - ${(content.props as unknown as { TitleOfActivity: string }).TitleOfActivity}`)
-  process.exit(1)
 }
 
 await context.close()

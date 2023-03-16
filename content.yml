@@ -20,3 +20,16 @@
 #     date: 2023-02-27
 #     description: In this video, we explored the Axum web framework for the Rust
 #       programming language.
+# - type: VideoWebcastPodcast
+#   props:
+#     primaryContributionArea: Cloud Security
+#     title: 31. CloudFormation or Terraform?
+#     url: https://www.youtube.com/watch?v=mLkOH2I0rX8
+#     numberOfVideos: 1
+#     numberOfViews: 932
+#     date: 2022-04-07
+#     description:
+#       Should I use CloudFormation or should I use Terraform instead? If
+#       you are just starting to write Infrastructure as Code (IaaC) you probably
+#       have this question. In this episode, we will discuss in detail how these
+#       two amazing pieces of technology compare ag
