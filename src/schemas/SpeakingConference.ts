@@ -1,26 +1,26 @@
 import { z } from 'zod'
 import { ContentDate, ContributionAreaSchema, NumberAsString, SecondaryContributionAreaSchema } from './utils.js'
 
-export const ArticleSchema = z.object({
+export const SpeakingConferenceSchema = z.object({
   primaryContributionArea: ContributionAreaSchema,
   secondaryContributionArea: SecondaryContributionAreaSchema,
   date: ContentDate,
   title: z.string(),
   url: z.string().url().optional(),
   description: z.string().optional(),
-  numberOfArticles: NumberAsString,
-  numberOfViews: NumberAsString.optional()
+  numberOfTalks: NumberAsString,
+  numberOfAttendees: NumberAsString.optional()
 })
 
-export type Article = z.infer<typeof ArticleSchema>
+export type SpeakingConference = z.infer<typeof SpeakingConferenceSchema>
 
-export const ArticleFieldMapping: Record<keyof Article, string> = {
+export const SpeakingConferenceFieldMapping: Record<keyof SpeakingConference, string> = {
   primaryContributionArea: 'select_contributionAreasDDL',
   secondaryContributionArea: 'select_contributionAreasDDL2',
   date: 'DateOfActivity',
   title: 'TitleOfActivity',
   url: 'ReferenceUrl',
   description: 'Description',
-  numberOfArticles: 'AnnualQuantity',
-  numberOfViews: 'AnnualReach'
+  numberOfTalks: 'AnnualQuantity',
+  numberOfAttendees: 'AnnualReach'
 } as const

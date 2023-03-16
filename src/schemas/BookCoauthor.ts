@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { ContentDate, ContributionAreaSchema, SecondaryContributionAreaSchema } from './utils.js'
+import { ContentDate, ContributionAreaSchema, NumberAsString, SecondaryContributionAreaSchema } from './utils.js'
 
 export const BookCoauthorSchema = z.object({
   primaryContributionArea: ContributionAreaSchema,
@@ -8,8 +8,8 @@ export const BookCoauthorSchema = z.object({
   title: z.string(),
   url: z.string().url().optional(),
   description: z.string().optional(),
-  numberOfBooks: z.number().optional(),
-  copiesSold: z.number().optional()
+  numberOfBooks: NumberAsString,
+  copiesSold: NumberAsString.optional()
 })
 
 export type BookCoauthor = z.infer<typeof BookCoauthorSchema>

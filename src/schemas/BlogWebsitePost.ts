@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { ContentDate, ContributionAreaSchema, SecondaryContributionAreaSchema } from './utils.js'
+import { ContentDate, ContributionAreaSchema, NumberAsString, SecondaryContributionAreaSchema } from './utils.js'
 
 export const BlogWebsitePostSchema = z.object({
   primaryContributionArea: ContributionAreaSchema,
@@ -8,9 +8,9 @@ export const BlogWebsitePostSchema = z.object({
   title: z.string(),
   url: z.string().url(),
   description: z.string().optional(),
-  numberOfPosts: z.number(),
-  numberOfSubscribers: z.number().optional(),
-  annualUniqueVisitors: z.number().optional()
+  numberOfPosts: NumberAsString,
+  numberOfSubscribers: NumberAsString.optional(),
+  annualUniqueVisitors: NumberAsString.optional()
 })
 
 export type BlogWebsitePost = z.infer<typeof BlogWebsitePostSchema>

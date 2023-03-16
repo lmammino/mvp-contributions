@@ -1,5 +1,5 @@
-# - Type: Article
-#   Props:
+# - type: Article
+#   props:
 #     primaryContributionArea: Cloud Security
 #     secondaryContributionArea:
 #       - "Javascript/Typescript"

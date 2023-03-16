@@ -14,3 +14,5 @@ export const ContentDate = z.coerce.date().transform((value) => {
 
   return `${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()}`
 })
+
+export const NumberAsString = z.number().transform(String)

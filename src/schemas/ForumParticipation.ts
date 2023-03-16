@@ -1,26 +1,28 @@
 import { z } from 'zod'
 import { ContentDate, ContributionAreaSchema, NumberAsString, SecondaryContributionAreaSchema } from './utils.js'
 
-export const ArticleSchema = z.object({
+export const ForumParticipationSchema = z.object({
   primaryContributionArea: ContributionAreaSchema,
   secondaryContributionArea: SecondaryContributionAreaSchema,
   date: ContentDate,
   title: z.string(),
   url: z.string().url().optional(),
   description: z.string().optional(),
-  numberOfArticles: NumberAsString,
-  numberOfViews: NumberAsString.optional()
+  numberOfAnswers: NumberAsString,
+  numberOfPosts: NumberAsString.optional(),
+  numberOfViewsOnAnswers: NumberAsString.optional()
 })
 
-export type Article = z.infer<typeof ArticleSchema>
+export type ForumParticipation = z.infer<typeof ForumParticipationSchema>
 
-export const ArticleFieldMapping: Record<keyof Article, string> = {
+export const ForumParticipationFieldMapping: Record<keyof ForumParticipation, string> = {
   primaryContributionArea: 'select_contributionAreasDDL',
   secondaryContributionArea: 'select_contributionAreasDDL2',
   date: 'DateOfActivity',
   title: 'TitleOfActivity',
   url: 'ReferenceUrl',
   description: 'Description',
-  numberOfArticles: 'AnnualQuantity',
-  numberOfViews: 'AnnualReach'
+  numberOfAnswers: 'AnnualQuantity',
+  numberOfPosts: 'SecondAnnualQuantity',
+  numberOfViewsOnAnswers: 'AnnualReach'
 } as const

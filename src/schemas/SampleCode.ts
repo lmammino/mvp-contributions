@@ -1,26 +1,26 @@
 import { z } from 'zod'
 import { ContentDate, ContributionAreaSchema, NumberAsString, SecondaryContributionAreaSchema } from './utils.js'
 
-export const ArticleSchema = z.object({
+export const SampleCodeSchema = z.object({
   primaryContributionArea: ContributionAreaSchema,
   secondaryContributionArea: SecondaryContributionAreaSchema,
   date: ContentDate,
   title: z.string(),
   url: z.string().url().optional(),
   description: z.string().optional(),
-  numberOfArticles: NumberAsString,
-  numberOfViews: NumberAsString.optional()
+  numberOfSamples: NumberAsString,
+  numberOfDownloads: NumberAsString.optional()
 })
 
-export type Article = z.infer<typeof ArticleSchema>
+export type SampleCode = z.infer<typeof SampleCodeSchema>
 
-export const ArticleFieldMapping: Record<keyof Article, string> = {
+export const SampleCodeFieldMapping: Record<keyof SampleCode, string> = {
   primaryContributionArea: 'select_contributionAreasDDL',
   secondaryContributionArea: 'select_contributionAreasDDL2',
   date: 'DateOfActivity',
   title: 'TitleOfActivity',
   url: 'ReferenceUrl',
   description: 'Description',
-  numberOfArticles: 'AnnualQuantity',
-  numberOfViews: 'AnnualReach'
+  numberOfSamples: 'AnnualQuantity',
+  numberOfDownloads: 'AnnualReach'
 } as const

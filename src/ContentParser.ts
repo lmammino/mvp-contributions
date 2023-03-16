@@ -1,16 +1,18 @@
-import { ContentSchema, ContentFieldMapping } from './ContentSchemas.js'
+import { readFile } from 'node:fs/promises'
+import { parse } from 'yaml'
+import { ContentSchemaByType, ContentFieldMapping, ContentSchemaList, type Content } from './ContentSchemas.js'
 
-interface RawData {
-  Type: keyof typeof ContentSchema
-  Props: Record<string, any>
-}
+// TODO: (future idea) support JS/TS files to allow edit time type checking
+export async function parseContent (filepath: string): Promise<Array<Record<string, any>>> {
+  const yaml = await readFile(filepath, 'utf8')
+  const rawData = parse(yaml)
+  const data = ContentSchemaList.parse(rawData)
 
-export function parseContent (data: RawData[]): Array<Record<string, any>> {
-  return data.map((rawData) => {
-    const schema = ContentSchema[rawData.Type]
-    const parsed = schema.parse(rawData.Props)
+  return data.map((data: Content) => {
+    const schema = ContentSchemaByType[data.type]
+    const parsed = schema.parse(rawData.props)
     const mapped = {} as any
-    const mapping = ContentFieldMapping[rawData.Type]
+    const mapping = ContentFieldMapping[data.type]
     for (const key in parsed) {
       mapped[mapping[key]] = parsed[key as keyof typeof parsed]
     }

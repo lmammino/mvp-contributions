@@ -1,18 +1,13 @@
 import { chromium, devices } from 'playwright'
-import { readFile } from 'node:fs/promises'
-import { parse } from 'yaml'
 import { parseContent } from './ContentParser.js'
 
 const filepath = process.argv[2]
 if (filepath?.length === 0) throw new Error('No filepath provided.')
 
-const cookie = process.argv[3]
-if (cookie?.length === 0) throw new Error('No cookie provided.')
+const cookie = process.argv[3] ?? process.env.MVP_COOKIE
+if (typeof cookie === 'undefined') throw new Error('No cookie provided.')
 
-const yaml = await readFile(filepath, 'utf8')
-const data = parse(yaml)
-
-const contents = parseContent(data)
+const contents = await parseContent(filepath)
 
 // Setup
 const browser = await chromium.launch({ headless: false })
