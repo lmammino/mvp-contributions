@@ -19,7 +19,7 @@ Go to your browser of choice and head to [mvp.microsoft.com](https://mvp.microso
 - Clone
 - run `npm i`
 - populate the sample `content.yml` with your content
-- run `npm start -- content.yml <your_session_cookie>` (replace `<your_session_cookie>` with your actual cookie)
+- run `npm start -- content.yml <your_session_cookie>` (replace `<your_session_cookie>` with your actual cookie). Alternatively, the session cookie can also be specified using the `MVP_COOKIE` environment variable (recommended).
 
 
 ## Schema
