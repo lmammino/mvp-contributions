@@ -2,7 +2,10 @@
 
 Automates contribution submissions to the Microsoft MVP (Most Valuable Professional) portal.
 
-Status: **Alpha quality** (manually tested, bugs are expected)
+**Status**: **Alpha quality** (manually tested, bugs are expected)
+
+![Screenshot of the tool in action](/docs/screenshot.png)
+
 
 ## Rationale
 
