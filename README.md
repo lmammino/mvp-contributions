@@ -26,6 +26,14 @@ Go to your browser of choice and head to [mvp.microsoft.com](https://mvp.microso
 
 TODO: describe schema for `content.yml`
 
-## LICENSE
 
-TODO:
+## Contributing
+
+Everyone is very welcome to contribute to this project.
+You can contribute just by submitting bugs or suggesting improvements by
+[opening an issue on GitHub](https://github.com/lmammino/mvp-contributions/issues).
+
+
+## License
+
+Licensed under [MIT License](LICENSE). © Luciano Mammino.
