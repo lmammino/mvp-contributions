@@ -22,7 +22,7 @@ import { SpeakingUserGroupFieldMapping, SpeakingUserGroupSchema } from './schema
 import { TechnicalSocialMediaFieldMapping, TechnicalSocialMediaSchema } from './schemas/TechnicalSocialMedia.js'
 import { TranslationReviewFieldMapping, TranslationReviewSchema } from './schemas/TranslationReview.js'
 import { VideoWebcastPodcastFieldMapping, VideoWebcastPodcastSchema } from './schemas/VideoWebcastPodcast.js'
-import { WorkshopVolunteerProcotorFieldMapping, WorkshopVolunteerProcotorSchema } from './schemas/WorkshopVolunteerProcotor.js'
+import { WorkshopVolunteerProctorFieldMapping, WorkshopVolunteerProctorSchema } from './schemas/WorkshopVolunteerProctor.js'
 
 export const ContentSchema = z.discriminatedUnion('type', [
   z.object({ type: z.literal('Article'), props: ArticleSchema }),
@@ -48,7 +48,7 @@ export const ContentSchema = z.discriminatedUnion('type', [
   z.object({ type: z.literal('TechnicalSocialMedia'), props: TechnicalSocialMediaSchema }),
   z.object({ type: z.literal('TranslationReview'), props: TranslationReviewSchema }),
   z.object({ type: z.literal('VideoWebcastPodcast'), props: VideoWebcastPodcastSchema }),
-  z.object({ type: z.literal('WorkshopVolunteerProcotor'), props: WorkshopVolunteerProcotorSchema })
+  z.object({ type: z.literal('WorkshopVolunteerProctor'), props: WorkshopVolunteerProctorSchema })
 ])
 
 export type MappedContentSchema =
@@ -75,7 +75,7 @@ export type MappedContentSchema =
   { type: 'TechnicalSocialMedia', props: Record<keyof typeof TechnicalSocialMediaSchema, string> } |
   { type: 'TranslationReview', props: Record<keyof typeof TranslationReviewSchema, string> } |
   { type: 'VideoWebcastPodcast', props: Record<keyof typeof VideoWebcastPodcastSchema, string> } |
-  { type: 'WorkshopVolunteerProcotor', props: Record<keyof typeof WorkshopVolunteerProcotorSchema, string> }
+  { type: 'WorkshopVolunteerProctor', props: Record<keyof typeof WorkshopVolunteerProctorSchema, string> }
 
 export type Content = z.infer<typeof ContentSchema>
 
@@ -105,7 +105,7 @@ export const ContentSchemaByType = {
   TechnicalSocialMedia: TechnicalSocialMediaSchema,
   TranslationReview: TranslationReviewSchema,
   VideoWebcastPodcast: VideoWebcastPodcastSchema,
-  WorkshopVolunteerProcotor: WorkshopVolunteerProcotorSchema
+  WorkshopVolunteerProctor: WorkshopVolunteerProctorSchema
 } as const
 
 export const ContentFieldMapping: Record<keyof typeof ContentSchemaByType, Record<string, string>> = {
@@ -132,7 +132,7 @@ export const ContentFieldMapping: Record<keyof typeof ContentSchemaByType, Recor
   TechnicalSocialMedia: TechnicalSocialMediaFieldMapping,
   TranslationReview: TranslationReviewFieldMapping,
   VideoWebcastPodcast: VideoWebcastPodcastFieldMapping,
-  WorkshopVolunteerProcotor: WorkshopVolunteerProcotorFieldMapping
+  WorkshopVolunteerProctor: WorkshopVolunteerProctorFieldMapping
 } as const
 
 export const ContentTypeIDs: Record<keyof typeof ContentSchemaByType, string> = {
@@ -159,5 +159,5 @@ export const ContentTypeIDs: Record<keyof typeof ContentSchemaByType, string> = 
   TechnicalSocialMedia: 'eb6464de-179a-e411-bbc8-6c3be5a82b68',
   TranslationReview: '056564de-179a-e411-bbc8-6c3be5a82b68',
   VideoWebcastPodcast: 'e56464de-179a-e411-bbc8-6c3be5a82b68',
-  WorkshopVolunteerProcotor: '0ee0dc15-0304-e911-8171-3863bb2bca60'
+  WorkshopVolunteerProctor: '0ee0dc15-0304-e911-8171-3863bb2bca60'
 } as const

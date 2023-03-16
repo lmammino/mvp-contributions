@@ -70,7 +70,7 @@ Here you can find the list of all the available types (pointing to their schema 
 - [`TechnicalSocialMedia`](/src/schemas/TechnicalSocialMedia.ts)
 - [`TranslationReview`](/src/schemas/TranslationReview.ts)
 - [`VideoWebcastPodcast`](/src/schemas/VideoWebcastPodcast.ts)
-- [`WorkshopVolunteerProcotor`](/src/schemas/WorkshopVolunteerProcotor.ts)
+- [`WorkshopVolunteerProctor`](/src/schemas/WorkshopVolunteerProctor.ts)
 
 
 Note tha the [`content.yml`](/content.yml) committed in this repository contains some commented examples that you can use as a reference.
