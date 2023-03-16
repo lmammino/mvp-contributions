@@ -1,10 +1,10 @@
 import { z } from 'zod'
-import { ContributionAreaIDs, type ContributionAreaId } from '../ContributionAreas.js'
+import { ContributionAreas, type ContributionAreaId } from '../ContributionAreas.js'
 
 export const ContributionAreaSchema = z.string().refine((value) => {
-  return Object.keys(ContributionAreaIDs).includes(value)
+  return Object.keys(ContributionAreas).includes(value)
 }).transform((value) => {
-  return ContributionAreaIDs[value as ContributionAreaId]
+  return ContributionAreas[value as ContributionAreaId]
 })
 
 export const SecondaryContributionAreaSchema = z.array(ContributionAreaSchema).max(2).optional()

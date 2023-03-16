@@ -1,6 +1,6 @@
 // list retrieved with:
 // > document.querySelectorAll('#select_contributionAreasDDL optgroup option:not([disabled])')
-export const ContributionAreaIDs = {
+export const ContributionAreas = {
   '.NET': 'aec301bb-189a-e411-93f2-9cb65495d3c4',
   Accessibility: '0b2c2181-02e4-e611-80fe-3863bb34cb20',
   'ASP.NET/IIS': '82c301bb-189a-e411-93f2-9cb65495d3c4',
@@ -126,4 +126,4 @@ export const ContributionAreaIDs = {
   'Windows Development': '5004f4ef-066b-e511-810b-fc15b428ced0'
 } as const
 
-export type ContributionAreaId = (keyof typeof ContributionAreaIDs)
+export type ContributionAreaId = (keyof typeof ContributionAreas)

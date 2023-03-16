@@ -51,6 +51,32 @@ export const ContentSchema = z.discriminatedUnion('type', [
   z.object({ type: z.literal('WorkshopVolunteerProcotor'), props: WorkshopVolunteerProcotorSchema })
 ])
 
+export type MappedContentSchema =
+  { type: 'Article', props: Record<keyof typeof ArticleFieldMapping, string> } |
+  { type: 'BlogWebsitePost', props: Record<keyof typeof BlogWebsitePostSchema, string> } |
+  { type: 'BookAuthor', props: Record<keyof typeof BookAuthorSchema, string> } |
+  { type: 'BookCoauthor', props: Record<keyof typeof BookCoauthorSchema, string> } |
+  { type: 'ConferenceStaffing', props: Record<keyof typeof ConferenceStaffingSchema, string> } |
+  { type: 'DocsMicrosoftComContribution', props: Record<keyof typeof DocsMicrosoftComContributionSchema, string> } |
+  { type: 'ForumModerator', props: Record<keyof typeof ForumModeratorSchema, string> } |
+  { type: 'ForumParticipation', props: Record<keyof typeof ForumParticipationSchema, string> } |
+  { type: 'ForumParticipationMicrosoft', props: Record<keyof typeof ForumParticipationMicrosoftSchema, string> } |
+  { type: 'Mentorship', props: Record<keyof typeof MentorshipSchema, string> } |
+  { type: 'MicrosoftOpenSource', props: Record<keyof typeof MicrosoftOpenSourceSchema, string> } |
+  { type: 'NonMicrosoftOpenSource', props: Record<keyof typeof NonMicrosoftOpenSourceSchema, string> } |
+  { type: 'OrganizerConference', props: Record<keyof typeof OrganizerConferenceSchema, string> } |
+  { type: 'OrganizerUserGroup', props: Record<keyof typeof OrganizerUserGroupSchema, string> } |
+  { type: 'Other', props: Record<keyof typeof OtherSchema, string> } |
+  { type: 'ProductGroupFeedback', props: Record<keyof typeof ProductGroupFeedbackSchema, string> } |
+  { type: 'SampleCode', props: Record<keyof typeof SampleCodeSchema, string> } |
+  { type: 'SiteOwner', props: Record<keyof typeof SiteOwnerSchema, string> } |
+  { type: 'SpeakingConference', props: Record<keyof typeof SpeakingConferenceSchema, string> } |
+  { type: 'SpeakingUserGroup', props: Record<keyof typeof SpeakingUserGroupSchema, string> } |
+  { type: 'TechnicalSocialMedia', props: Record<keyof typeof TechnicalSocialMediaSchema, string> } |
+  { type: 'TranslationReview', props: Record<keyof typeof TranslationReviewSchema, string> } |
+  { type: 'VideoWebcastPodcast', props: Record<keyof typeof VideoWebcastPodcastSchema, string> } |
+  { type: 'WorkshopVolunteerProcotor', props: Record<keyof typeof WorkshopVolunteerProcotorSchema, string> }
+
 export type Content = z.infer<typeof ContentSchema>
 
 export const ContentSchemaList = z.array(ContentSchema)

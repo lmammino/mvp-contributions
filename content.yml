@@ -10,4 +10,13 @@
 #     description: "Article about AWS S3 pre-signed urls published on the fourTheorem blog"
 #     numberOfArticles: 1
 #     numberOfViews: 10000
-
+# - type: VideoWebcastPodcast
+#   props:
+#     primaryContributionArea: C++
+#     title: Learning Rust web servers with Axum & SQLx (Twitch live stream)
+#     url: https://www.youtube.com/watch?v=lXiXdPmRqSk
+#     numberOfVideos: 1
+#     numberOfViews: 105
+#     date: 2023-02-27
+#     description: In this video, we explored the Axum web framework for the Rust
+#       programming language.
