@@ -1,5 +1,10 @@
 # mvp-contributions
 
+[![npm version](https://badge.fury.io/js/mvp-contributions.svg)](https://badge.fury.io/js/mvp-contributions)
+[![Node.js Package](https://github.com/lmammino/mvp-contributions/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/lmammino/mvp-contributions/actions/workflows/npm-publish.yml)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
+
 CLI tool to review and submit your Microsoft MVP contributions
 
 **Status**: **Beta quality** (manually tested, bugs are expected)
