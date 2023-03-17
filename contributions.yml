@@ -33,3 +33,35 @@
 #       you are just starting to write Infrastructure as Code (IaaC) you probably
 #       have this question. In this episode, we will discuss in detail how these
 #       two amazing pieces of technology compare ag
+# - type: SpeakingConference
+#   props:
+#     primaryContributionArea: Javascript/Typescript
+#     secondaryContributionArea:
+#       - Node.js
+#     date: 2023-03-09,
+#     title: The evolution of Async JavaScript and its patterns
+#     url: https://loige.link/async-evo
+#     description: Talk at Node.js ONE Africa conference remote
+#     numberOfTalks: 1
+#     numberOfAttendees: 5000
+# - type: SpeakingUserGroup
+#   props:
+#     primaryContributionArea: Javascript/Typescript
+#     secondaryContributionArea:
+#       - Node.js
+#     date: 2023-03-07,
+#     title: Did you know JavaScript has iterators?
+#     url: https://loige.link/iterate
+#     description: Talk at DublinJS meetup Dublin
+#     numberOfTalks: 1
+#     numberOfAttendees: 150
+# - type: WorkshopVolunteerProctor
+#   props:
+#     primaryContributionArea: Javascript/Typescript
+#     secondaryContributionArea:
+#       - Node.js
+#     date: 2022-05-24,
+#     title: Javascript iteration protocols (workshop)
+#     url: https://github.com/lmammino/iteration-protocols-workshop
+#     description: Workshop at Codemotion Workshop Fest
+#     numberOfEvents: 1

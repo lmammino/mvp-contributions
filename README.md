@@ -4,30 +4,31 @@
 [![Node.js Package](https://github.com/lmammino/mvp-contributions/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/lmammino/mvp-contributions/actions/workflows/npm-publish.yml)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-
 CLI tool to review and submit your Microsoft MVP contributions
 
 **Status**: **Beta quality** (manually tested, bugs are expected)
 
+![Screenshot](./docs/screenshot.png)
 
-## Rationale
+
+## 🤨 Rationale
 
 The MVP website is quite slow (yup, indeed Microsoft... 🤷) so it's tedious to submit a lot of stuff by hand. This tool should be able to automate most of the hard work.
 
 It also provide convenience commands to delete entries and deduplicate them.
 
 
-## Requirements
+## 🛠️ Requirements
 
 This tool requires a **modern version of Node.js (18+)**
 
 
-## Authentication
+## 🔑 Authentication
 
 Go to your browser of choice and head to [mvp.microsoft.com](https://mvp.microsoft.com/). Do a login. Inspect your cookies and copy the value for the cookie `.AspNet.Cookies`.
 
 
-## Usage
+## 👩‍🏫 Usage
 
 You can use this tool with `npx` or install it locally.
 
@@ -84,7 +85,7 @@ mvp-contributions -c "etzEL73OjWhpwayx..." list
 ```
 
 
-## Submitting content from YAML files
+## 🥹 Submitting content from YAML files
 
 The goal of this project is to be able to come up with ways of fetching all the content activities from one or more sources and convert them to the expected YAML contribution format.
 
@@ -96,7 +97,7 @@ Some examples are available on how you might be able to fetch and convert data f
 Feel free to submit your examples here.
 
 
-## Schema
+## 📦 Schema
 
 Your `content.yml` file needs to follow a very specific schema.
 
@@ -134,8 +135,10 @@ Here you can find the list of all the available types (pointing to their schema 
 
 Note tha the [`contributions.yml`](/contributions.yml) committed in this repository contains some commented examples that you can use as a reference.
 
+The list of all available **Contribution Areas** is available in [`src/ContributionAreas.ts`](/src/ContributionAreas.ts)
 
-## Future improvement ideas
+
+## 💡 Future improvement ideas
 
 - Better testing (no testing right now... confused_john_travolta.gif)
 - Support content files in JS/TS (to have a better authoring experience with autocompletion and type checking)
