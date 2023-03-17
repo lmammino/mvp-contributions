@@ -33,31 +33,3 @@
 #       you are just starting to write Infrastructure as Code (IaaC) you probably
 #       have this question. In this episode, we will discuss in detail how these
 #       two amazing pieces of technology compare ag
-- type: VideoWebcastPodcast
-  props:
-    primaryContributionArea: Cloud Security
-    secondaryContributionArea:
-      - "Javascript/Typescript"
-      - "Node.js"
-    title: TEST
-    url: https://www.youtube.com/watch?v=mLkOH2I0rX8
-    numberOfVideos: 1
-    numberOfViews: 932
-    date: 2023-03-16
-    description:
-      Should I use CloudFormation or should I use Terraform instead? If
-      you are just starting to write Infrastructure as Code (IaaC) you probably
-      have this question. In this episode, we will discuss in detail how these
-      two amazing pieces of technology compare ag
-# - type: Article
-#   props:
-#     primaryContributionArea: Cloud Security
-#     secondaryContributionArea:
-#       - "Javascript/Typescript"
-#       - "Node.js"
-#     date: 2023-03-16
-#     title: "TEST2"
-#     url: "https://fourtheorem.com/the-illustrated-guide-to-s3-pre-signed-urls/"
-#     description: "Article about AWS S3 pre-signed urls published on the fourTheorem blog"
-#     numberOfArticles: 1
-#     numberOfViews: 10000
