@@ -121,30 +121,44 @@ export function makeClient (aspnetCookieValue: string): Client {
         }
       }
 
+      if (typeof data['AdditionalTechnology1.Id'] === 'undefined') {
+        data['AdditionalTechnology1.Id'] = '00000000-0000-0000-0000-000000000000'
+      }
+      if (typeof data['AdditionalTechnology1.Name'] === 'undefined') {
+        data['AdditionalTechnology1.Name'] = ''
+      }
+      if (typeof data['AdditionalTechnology2.Id'] === 'undefined') {
+        data['AdditionalTechnology2.Id'] = '00000000-0000-0000-0000-000000000000'
+      }
+      if (typeof data['AdditionalTechnology2.Name'] === 'undefined') {
+        data['AdditionalTechnology2.Name'] = ''
+      }
+
       const headers = makeHeaders({
         ...baseCookies,
         ...{ __RequestVerificationToken: tokenCookie }
       },
-      { 'content-type': 'application/x-www-form-urlencoded; charset=UTF-8' }
-      )
-      console.log(headers, data)
+      {
+        'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      })
+
       const resp = await got('https://mvp.microsoft.com/en-us/Bookmarklet/SaveActivity?source=Profile', {
         method: 'POST',
         headers,
         form: data,
-        throwHttpErrors: false,
-        followRedirect: false
+        followRedirect: false,
+        throwHttpErrors: false
       })
 
-      if (resp.errored != null) {
-        throw new Error(`Could not post contribution with title "${content.props.TitleOfActivity}".\n\n${resp.errored.toString()}`)
+      if (resp.statusCode !== 200) {
+        throw new Error(`Could not post contribution with title "${content.props.TitleOfActivity}" (Status code: ${resp.statusCode}).`)
       }
     },
 
     async deleteContent (contributionId: number): Promise<void> {
       const { tokenField, tokenCookie } = await getRequestVerificationToken(baseCookies)
       const headers = makeHeaders({ ...baseCookies, ...{ __RequestVerificationToken: tokenCookie } })
-      const res = await got('https://mvp.microsoft.com/en-us/Bookmarklet/DeleteActivity?source=Profile', {
+      const resp = await got('https://mvp.microsoft.com/en-us/Bookmarklet/DeleteActivity?source=Profile', {
         method: 'POST',
         headers,
         form: {
@@ -155,8 +169,8 @@ export function makeClient (aspnetCookieValue: string): Client {
         followRedirect: false
       })
 
-      if (res.errored != null) {
-        throw new Error(`Could not delete contribution ${contributionId}.\n\n${res.errored.toString()}`)
+      if (resp.statusCode !== 200) {
+        throw new Error(`Could not delete contribution ${contributionId} (Status code: ${resp.statusCode}).`)
       }
     }
   }
