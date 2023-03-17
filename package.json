@@ -1,6 +1,6 @@
 {
   "name": "mvp-contributions",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "CLI tool to review and submit your Microsoft MVP contributions",
   "main": "index.js",
   "type": "module",
