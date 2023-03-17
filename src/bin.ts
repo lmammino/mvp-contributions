@@ -1,14 +1,21 @@
+#!/usr/bin/env node
+
+import { readFile } from 'node:fs/promises'
+import { join } from 'node:path'
+import { dirname } from 'desm'
 import { program } from 'commander'
 import { dedupCmd } from './commands/dedup.js'
 import { deleteCmd } from './commands/delete.js'
 import { listCmd } from './commands/list.js'
 import { submitCmd } from './commands/submit.js'
 
+const packageJson = JSON.parse(await readFile(join(dirname(import.meta.url), '../package.json'), 'utf8'))
+
 const cookieParamDesc = '`.AspNet.Cookies` cookie value from a logged in session at https://mvp.microsoft.com/'
 
 program
-  .name('mvp-contributions')
-  .version('1.0.0')
+  .name(packageJson.name)
+  .version(packageJson.version)
   .description('Review and submit your Microsoft MVP contributions')
   .addHelpText('after', `
   Check out https://github.com/lmammino/mvp-contributions for a more detailed documentation.

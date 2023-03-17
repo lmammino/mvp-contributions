@@ -1,6 +1,7 @@
 {
   "extends": "@tsconfig/node18/tsconfig.json",
   "compilerOptions": {
+    "outDir": "lib",
     "preserveConstEnums": true,
     "module": "nodenext",
     "target": "ESNext",
