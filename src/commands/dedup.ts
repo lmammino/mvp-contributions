@@ -1,3 +1,4 @@
+import ora from 'ora'
 import { makeClient } from '../client.js'
 import { ensureCookie } from './ensureCookie.js'
 
@@ -21,10 +22,11 @@ export async function dedupCmd (options: any): Promise<void> {
   const withDuplicates = Object.entries(mapByTitleDate).filter(([k, v]) => v.length > 1)
 
   for (const [title, ids] of withDuplicates) {
+    const spinner = ora(`Deleting duplicates for "${title}" ...`).start()
     ids.pop() // preserves one entry
     for (const id of ids) {
       await client.deleteContent(id)
     }
-    console.log(`✔️  Deleted duplicates for ${title}`)
+    spinner.succeed(title)
   }
 }

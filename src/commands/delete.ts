@@ -1,3 +1,4 @@
+import { oraPromise } from 'ora'
 import { makeClient } from '../client.js'
 import { ensureCookie } from './ensureCookie.js'
 
@@ -6,7 +7,10 @@ export async function deleteCmd (contributionIds: string[], options: any): Promi
   const client = makeClient(cookie)
 
   for (const contributionId of contributionIds) {
-    await client.deleteContent(parseInt(contributionId, 10))
-    console.log(`✔️  Deleted contribution ${contributionId}`)
+    await oraPromise(client.deleteContent(parseInt(contributionId, 10)), {
+      text: `Deleting contribution "${contributionId}" ...`,
+      successText: contributionId,
+      failText: (err: Error) => err.message
+    })
   }
 }

@@ -85,7 +85,7 @@ mvp-contributions -c "etzEL73OjWhpwayx..." list
 ```
 
 
-## 🥹 Submitting content from YAML files
+## 🥹 Generating YAML files from existing content
 
 The goal of this project is to be able to come up with ways of fetching all the content activities from one or more sources and convert them to the expected YAML contribution format.
 
