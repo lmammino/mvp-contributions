@@ -1,15 +1,20 @@
 # mvp-contributions
 
-Automates contribution submissions to the Microsoft MVP (Most Valuable Professional) portal.
+CLI tool to review and submit your Microsoft MVP contributions
 
-**Status**: **Alpha quality** (manually tested, bugs are expected)
-
-![Screenshot of the tool in action](/docs/screenshot.png)
+**Status**: **Beta quality** (manually tested, bugs are expected)
 
 
 ## Rationale
 
-The MVP website is slow and it's tedious to submit a lot of stuff by hand. This tool should be able to automate most of the hard work.
+The MVP website is quite slow (yup, indeed Microsoft... 🤷) so it's tedious to submit a lot of stuff by hand. This tool should be able to automate most of the hard work.
+
+It also provide convenience commands to delete entries and deduplicate them.
+
+
+## Requirements
+
+This tool requires a **modern version of Node.js (18+)**
 
 
 ## Authentication
@@ -19,13 +24,62 @@ Go to your browser of choice and head to [mvp.microsoft.com](https://mvp.microso
 
 ## Usage
 
-- Clone
-- run `npm i`
-- populate the sample `content.yml` with your content
-- run `npm start -- content.yml <your_session_cookie>` (replace `<your_session_cookie>` with your actual cookie). Alternatively, the session cookie can also be specified using the `MVP_COOKIE` environment variable (recommended).
+You can use this tool with `npx` or install it locally.
+
+### `npx` usage
+
+Just run:
+
+```bash
+npx mvp-contributions --help
+```
+
+### Local installation
+
+Install the tool locally with
+
+```bash
+npm i -g mvp-contributions
+```
+
+Then you can just run:
+
+```bash
+mvp-contributions --help
+```
 
 
-## Automation
+### Available commands
+
+These are the commands currently supported by the tool
+
+- `list [options]`: List submitted contributions (**default command**)
+- `delete [options] <contributionId...>`: Deletes one or more contributions by contribution by ID
+- `dedup [options]`: Deletes duplicated contributions
+- `submit [options] [filepath]`: Submit new contributions from contributions YAML file
+- `help [command]`: display help for command
+
+All commands (except `help`) requires you to have a valid session token. This token can be passed either through the `-c` flag or by setting the environment variable `MVP_COOKIE` (recommended).
+
+To get a valid session token, go to <https://mvp.microsoft.com/>. Perform a login and then inspect the page with your browser developer tools. Check out the cookies (_Application_ tab in Chrome) and copy the value for the `.AspNet.Cookies` cookie.
+
+#### Example
+
+If your `.AspNet.Cookies` value is `etzEL73OjWhpwayx...` (in reality it will be much longer than this), then you can do:
+
+```bash
+export MVP_COOKIE="etzEL73OjWhpwayx..."
+mvp-contributions list
+```
+
+or
+
+```bash
+mvp-contributions -c "etzEL73OjWhpwayx..." list
+```
+
+
+## Submitting content from YAML files
 
 The goal of this project is to be able to come up with ways of fetching all the content activities from one or more sources and convert them to the expected YAML contribution format.
 
@@ -73,15 +127,15 @@ Here you can find the list of all the available types (pointing to their schema 
 - [`WorkshopVolunteerProctor`](/src/schemas/WorkshopVolunteerProctor.ts)
 
 
-Note tha the [`content.yml`](/content.yml) committed in this repository contains some commented examples that you can use as a reference.
+Note tha the [`contributions.yml`](/contributions.yml) committed in this repository contains some commented examples that you can use as a reference.
 
 
 ## Future improvement ideas
 
-- Better testing
+- Better testing (no testing right now... confused_john_travolta.gif)
 - Support content files in JS/TS (to have a better authoring experience with autocompletion and type checking)
 - Detection of expired sessions (it generally lasts 1 hour)
-- Managed state files to be able to recover from failure
+- Avoid submit duplicated content (fetch all contente first and deduplicate on insertion)
 
 
 ## Contributing

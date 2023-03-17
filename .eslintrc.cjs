@@ -13,5 +13,6 @@ module.exports = {
     project: ['tsconfig.json']
   },
   rules: {
-  }
+  },
+  ignorePatterns: ['node_modules/', 'lib/']
 }
