@@ -6,6 +6,9 @@
 
 CLI tool to review and submit your Microsoft MVP contributions
 
+> [!WARNING]  
+> The MVP website and APIs have been updated and this project does not work anymore. For a lower-level alternative, you can check out [`mvp-activities`](https://github.com/lmammino/mvp-activities).
+
 **Status**: **Beta quality** (manually tested, bugs are expected)
 
 ![Screenshot](./docs/screenshot.png)
